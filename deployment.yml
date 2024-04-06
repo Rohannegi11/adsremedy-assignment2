@@ -1,0 +1,21 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejsmain-deployment
+  labels:
+    app: nodejsmain
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mywebsite
+  template:
+    metadata:
+      labels:
+        app: mywebsite
+    spec:
+      containers:
+      - name: nodejsmain
+        image: rohannegi11/nodejsmain:latest
+        ports:
+        - containerPort: 3000
